@@ -44,14 +44,14 @@ class KindleVC: UITableViewController {
             Page(pageno: 4, pagetext: "Some Text from page4")
             ])
         
-        let book2=Book(title: "Book2", coverimage: #imageLiteral(resourceName: "stevejobs"),pages:[
+        let book2=Book(title: "Book2", coverimage: #imageLiteral(resourceName: "bill_gates"),pages:[
             Page(pageno: 1, pagetext: "Some Text from page1"),
             Page(pageno: 2, pagetext: "Some Text from page2"),
             Page(pageno: 3, pagetext: "Some Text from page3"),
             Page(pageno: 4, pagetext: "Some Text from page4")
             ])
         
-        let book3=Book(title: "Book3", coverimage: #imageLiteral(resourceName: "stevejobs"),pages:[
+        let book3=Book(title: "Book3", coverimage: #imageLiteral(resourceName: "1"),pages:[
             Page(pageno: 1, pagetext: "Some Text from page1"),
             Page(pageno: 2, pagetext: "Some Text from page2"),
             Page(pageno: 3, pagetext: "Some Text from page3"),
@@ -97,11 +97,11 @@ class KindleVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedauthor = authors?[indexPath.row] else {return}
         print(selectedauthor.Name )
-        performSegue(withIdentifier: "BookSegue", sender: selectedauthor)
+        performSegue(withIdentifier: "bookseg", sender: selectedauthor)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let bookvc=segue.destination as? BookVC, let auth=sender as? Author{
+        if let bookvc=segue.destination as? BookView, let auth=sender as? Author{
             bookvc.author=auth
         }
     }

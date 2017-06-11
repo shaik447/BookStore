@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgI-PY-PRQ">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wgI-PY-PRQ">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +14,7 @@
             <objects>
                 <tableViewController id="u7Q-Pf-Rb2" customClass="KindleVC" customModule="ToolbarSample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SRt-9q-Vno">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -22,59 +22,89 @@
                             <outlet property="delegate" destination="u7Q-Pf-Rb2" id="4Id-va-zBd"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7ke-rX-sWW"/>
+                        <barButtonItem systemItem="refresh" id="zup-jr-WMV"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7qk-R8-Vub"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="q9k-8b-pOp"/>
                     <connections>
-                        <segue destination="dxS-A4-b3L" kind="show" identifier="BookSegue" id="bYO-Ez-URX"/>
+                        <segue destination="3XK-g8-jiS" kind="show" identifier="bookseg" id="J5k-ge-ad8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEl-pU-PQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="311.25" y="643.30985915492954"/>
         </scene>
-        <!--BookVC-->
-        <scene sceneID="fmP-io-QQI">
+        <!--Book View-->
+        <scene sceneID="ibf-fo-CSO">
             <objects>
-                <collectionViewController id="dxS-A4-b3L" customClass="BookVC" customModule="ToolbarSample" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wl4-pf-Wj9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <collectionViewController id="3XK-g8-jiS" customClass="BookView" customModule="ToolbarSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="mYs-Ix-fom">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1vh-CP-sbt">
-                            <size key="itemSize" width="124" height="124"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zwh-yW-FWk">
+                            <size key="itemSize" width="105" height="135"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bookcellid" id="yeF-jy-9MC" customClass="BookCell" customModule="ToolbarSample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="TRG-nd-E87" customClass="BookCell" customModule="ToolbarSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="105" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="105" height="135"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stevejobs" translatesAutoresizingMaskIntoConstraints="NO" id="RYn-0d-Wop">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="135"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RYn-0d-Wop" secondAttribute="trailing" id="A2t-0m-Z5T"/>
+                                    <constraint firstAttribute="bottom" secondItem="RYn-0d-Wop" secondAttribute="bottom" id="CdZ-vb-Qz0"/>
+                                    <constraint firstItem="RYn-0d-Wop" firstAttribute="leading" secondItem="TRG-nd-E87" secondAttribute="leading" id="D3G-yc-Ses"/>
+                                    <constraint firstItem="RYn-0d-Wop" firstAttribute="top" secondItem="TRG-nd-E87" secondAttribute="top" id="rhK-0Z-rma"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="coverImage" destination="RYn-0d-Wop" id="PL4-FF-vmT"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="dxS-A4-b3L" id="agD-fn-bGD"/>
-                            <outlet property="delegate" destination="dxS-A4-b3L" id="4Wr-gB-d8Q"/>
+                            <outlet property="dataSource" destination="3XK-g8-jiS" id="yyh-08-NGU"/>
+                            <outlet property="delegate" destination="3XK-g8-jiS" id="Ivn-QM-voN"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="add" id="Kw8-VD-dal"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="18w-KM-fzi"/>
+                        <barButtonItem style="plain" systemItem="trash" id="lA3-WS-fh8"/>
+                    </toolbarItems>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mYi-EI-QFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogE-5A-i9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.375" y="643.30985915492954"/>
+            <point key="canvasLocation" x="1028" y="641.82908545727139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gPb-jU-22w">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wgI-PY-PRQ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="wgI-PY-PRQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vgy-8m-FNg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="1KY-QJ-u4d">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="u7Q-Pf-Rb2" kind="relationship" relationship="rootViewController" id="T9b-Cm-tOx"/>
                     </connections>
@@ -84,4 +114,7 @@
             <point key="canvasLocation" x="-686.25" y="643.30985915492954"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="stevejobs" width="182" height="277"/>
+    </resources>
 </document>

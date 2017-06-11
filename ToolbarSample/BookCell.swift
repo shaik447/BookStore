@@ -10,24 +10,11 @@ import UIKit
 
 class BookCell: UICollectionViewCell {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .red
+   @IBOutlet weak var coverImage:UIImageView!
+
+    func updateUI(book:Book?) {
+       coverImage.image = book?.CoverImage ?? #imageLiteral(resourceName: "bill_gates")
+       
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    
-   
-//    func updateUI(book:Book) {
-//        if bookImage == nil{
-//            print("true")
-//        
-//        }
-//        
-//        //bookImage.image = UIImage(contentsOfFile: "bill_gates")
-//    }
     
 }
