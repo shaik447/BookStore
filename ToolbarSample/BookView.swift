@@ -47,11 +47,26 @@ class BookView: UICollectionViewController,UICollectionViewDelegateFlowLayout {
         
         return UICollectionViewCell()
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 30
+    }
+    
+    @IBAction func unwindAddbookVC(sender:UIStoryboardSegue){
+        if let sourceVC=sender.source as? AddBookVC{
+
+            let newindexpath=IndexPath(item: (author?.Books.count)!, section: 0)
+            author?.addBook(book: sourceVC.newbook)
+            
+            //collectionView?.reloadData()
+            collectionView?.insertItems(at: [newindexpath])
+          
+
+            
+        }
     }
 }

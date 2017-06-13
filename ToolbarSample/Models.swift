@@ -18,7 +18,13 @@ class Author{
     }
     
     var Books:[Book]{
-        return _books ?? [Book]()
+        get{
+            return _books ?? [Book]()
+        }
+    }
+    
+    func addBook(book:Book){
+        _books.append(book)
     }
     
     init(name:String, books:[Book]) {

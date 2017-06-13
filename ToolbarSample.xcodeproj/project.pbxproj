@@ -19,6 +19,7 @@
 		38F140641EEC254F005483E5 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F140631EEC254F005483E5 /* BookCell.swift */; };
 		567A7AAD1EED408500F8C4D4 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A7AAC1EED408500F8C4D4 /* BookView.swift */; };
 		567A7AAF1EED61CF00F8C4D4 /* tblcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A7AAE1EED61CF00F8C4D4 /* tblcell.swift */; };
+		567A7AB11EEFFE6C00F8C4D4 /* AddBookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A7AB01EEFFE6C00F8C4D4 /* AddBookVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		38F140631EEC254F005483E5 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		567A7AAC1EED408500F8C4D4 /* BookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		567A7AAE1EED61CF00F8C4D4 /* tblcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tblcell.swift; sourceTree = "<group>"; };
+		567A7AB01EEFFE6C00F8C4D4 /* AddBookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBookVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				38F140631EEC254F005483E5 /* BookCell.swift */,
 				567A7AAC1EED408500F8C4D4 /* BookView.swift */,
 				567A7AAE1EED61CF00F8C4D4 /* tblcell.swift */,
+				567A7AB01EEFFE6C00F8C4D4 /* AddBookVC.swift */,
 			);
 			path = ToolbarSample;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				38E7F6011EEB5249007A2C61 /* AddViewController.swift in Sources */,
 				38E7F5ED1EEB3FA4007A2C61 /* AppDelegate.swift in Sources */,
 				567A7AAD1EED408500F8C4D4 /* BookView.swift in Sources */,
+				567A7AB11EEFFE6C00F8C4D4 /* AddBookVC.swift in Sources */,
 				38F1405E1EEBFA0D005483E5 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

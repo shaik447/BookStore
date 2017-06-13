@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,7 +41,7 @@
         <scene sceneID="ibf-fo-CSO">
             <objects>
                 <collectionViewController id="3XK-g8-jiS" customClass="BookView" customModule="ToolbarSample" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="mYs-Ix-fom">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="mYs-Ix-fom">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,7 +83,11 @@
                         </connections>
                     </collectionView>
                     <toolbarItems>
-                        <barButtonItem style="plain" systemItem="add" id="Kw8-VD-dal"/>
+                        <barButtonItem style="plain" systemItem="add" id="Kw8-VD-dal">
+                            <connections>
+                                <segue destination="Jib-A2-ccY" kind="presentation" modalTransitionStyle="coverVertical" id="l4r-tv-eUS"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="18w-KM-fzi"/>
                         <barButtonItem style="plain" systemItem="trash" id="lA3-WS-fh8"/>
                     </toolbarItems>
@@ -90,6 +95,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogE-5A-i9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028" y="641.82908545727139"/>
+        </scene>
+        <!--Add BookVC-->
+        <scene sceneID="OeP-Jh-36A">
+            <objects>
+                <viewController id="Jib-A2-ccY" customClass="AddBookVC" customModule="ToolbarSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Wz-ID-9A5"/>
+                        <viewControllerLayoutGuide type="bottom" id="AaT-Zk-J2I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pjU-kH-Feb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaZ-Ii-vdi">
+                                <rect key="frame" x="154" y="318.5" width="67" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="OE0-7i-dqN"/>
+                                    <constraint firstAttribute="height" constant="30" id="hZt-iu-IBm"/>
+                                </constraints>
+                                <state key="normal" title="Add Book"/>
+                                <connections>
+                                    <action selector="bookAdded:" destination="Jib-A2-ccY" eventType="touchUpInside" id="ZzM-Lh-zFO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIH-r7-FNp">
+                                <rect key="frame" x="16" y="20" width="48" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7hI-yD-VaF"/>
+                                </constraints>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="closeBtnClicked:" destination="Jib-A2-ccY" eventType="touchUpInside" id="gP7-rp-0UQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gIH-r7-FNp" firstAttribute="leading" secondItem="pjU-kH-Feb" secondAttribute="leadingMargin" id="8PS-1j-8YS"/>
+                            <constraint firstItem="CaZ-Ii-vdi" firstAttribute="centerY" secondItem="pjU-kH-Feb" secondAttribute="centerY" id="BKL-5a-6YD"/>
+                            <constraint firstItem="gIH-r7-FNp" firstAttribute="top" secondItem="3Wz-ID-9A5" secondAttribute="bottom" id="Fex-bu-nG9"/>
+                            <constraint firstItem="CaZ-Ii-vdi" firstAttribute="centerX" secondItem="pjU-kH-Feb" secondAttribute="centerX" id="MJ7-k5-A0A"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeBtn" destination="gIH-r7-FNp" id="oDi-ju-71F"/>
+                        <segue destination="DFN-bf-3OS" kind="unwind" unwindAction="unwindAddbookVCWithSender:" id="bIT-uB-vV4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="30x-vs-IYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DFN-bf-3OS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1733.5999999999999" y="762.36881559220399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gPb-jU-22w">
