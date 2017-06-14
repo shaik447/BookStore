@@ -14,14 +14,27 @@ class BookView: UICollectionViewController,UICollectionViewDelegateFlowLayout {
 
     var author:Author?
     
+    
+    @IBOutlet weak var addBarBtn: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title=author?.Name
         let flowlayout=collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
         flowlayout?.minimumInteritemSpacing = 0
+        
+        
+
+        
     }
     
+    func doneclicked(){
+        navigationItem.rightBarButtonItems?.removeAll()
+        addBarBtn.isEnabled=true
+        for visibleitem in (collectionView?.visibleCells as? [BookCell])!{
+            visibleitem.showclose(bookcell: visibleitem,hide:true)
+        }
+    }
    
 
     
@@ -69,4 +82,68 @@ class BookView: UICollectionViewController,UICollectionViewDelegateFlowLayout {
             
         }
     }
+    
+    
+    @IBAction func TrashClicked(_ sender: UIBarButtonItem) {
+        let visbleitems=collectionView?.visibleCells as? [BookCell]
+        for visibleitem in visbleitems!{
+            visibleitem.showclose(bookcell: visibleitem,hide:false)
+        }
+        let doneitem=UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(doneclicked))
+        
+        navigationItem.setRightBarButton(doneitem, animated: true)
+        addBarBtn.isEnabled=false
+        
+    }
+    
+    
+    
+    @IBAction func deleteBookClicked(_ sender: UIButton){
+        print(sender.superview!.superview!)
+        if let parentcell = sender.superview!.superview, let bookcell = parentcell as? BookCell {
+            print(bookcell.book.Title)
+            let indexpath=collectionView?.indexPath(for: bookcell)
+            author?.removeBook(book: bookcell.book)
+            collectionView?.deleteItems(at: [indexpath!])
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

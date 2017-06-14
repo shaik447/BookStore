@@ -41,7 +41,7 @@
         <scene sceneID="ibf-fo-CSO">
             <objects>
                 <collectionViewController id="3XK-g8-jiS" customClass="BookView" customModule="ToolbarSample" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="mYs-Ix-fom">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="mYs-Ix-fom">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,6 +63,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="105" height="135"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8j-Xj-x2L">
+                                            <rect key="frame" x="85" y="0.0" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="8R1-Q9-Hky"/>
+                                                <constraint firstAttribute="height" constant="20" id="QjP-VR-gt9"/>
+                                            </constraints>
+                                            <state key="normal" title="CloseBtn" image="close-icon"/>
+                                            <connections>
+                                                <action selector="deleteBookClicked:" destination="3XK-g8-jiS" eventType="touchUpInside" id="DWa-wx-0S7"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,9 +81,12 @@
                                     <constraint firstAttribute="trailing" secondItem="RYn-0d-Wop" secondAttribute="trailing" id="A2t-0m-Z5T"/>
                                     <constraint firstAttribute="bottom" secondItem="RYn-0d-Wop" secondAttribute="bottom" id="CdZ-vb-Qz0"/>
                                     <constraint firstItem="RYn-0d-Wop" firstAttribute="leading" secondItem="TRG-nd-E87" secondAttribute="leading" id="D3G-yc-Ses"/>
+                                    <constraint firstAttribute="trailing" secondItem="V8j-Xj-x2L" secondAttribute="trailing" id="pvo-88-SZq"/>
                                     <constraint firstItem="RYn-0d-Wop" firstAttribute="top" secondItem="TRG-nd-E87" secondAttribute="top" id="rhK-0Z-rma"/>
+                                    <constraint firstItem="V8j-Xj-x2L" firstAttribute="top" secondItem="TRG-nd-E87" secondAttribute="top" id="x63-zv-6Hb"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="closeBtn" destination="V8j-Xj-x2L" id="cbH-wd-EWR"/>
                                     <outlet property="coverImage" destination="RYn-0d-Wop" id="PL4-FF-vmT"/>
                                 </connections>
                             </collectionViewCell>
@@ -89,8 +103,15 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="18w-KM-fzi"/>
-                        <barButtonItem style="plain" systemItem="trash" id="lA3-WS-fh8"/>
+                        <barButtonItem style="plain" systemItem="trash" id="lA3-WS-fh8">
+                            <connections>
+                                <action selector="TrashClicked:" destination="3XK-g8-jiS" id="opN-li-MKV"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
+                    <connections>
+                        <outlet property="addBarBtn" destination="Kw8-VD-dal" id="bzv-Ao-ntX"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogE-5A-i9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,6 +138,7 @@
                                 <state key="normal" title="Add Book"/>
                                 <connections>
                                     <action selector="bookAdded:" destination="Jib-A2-ccY" eventType="touchUpInside" id="ZzM-Lh-zFO"/>
+                                    <segue destination="DFN-bf-3OS" kind="unwind" unwindAction="unwindAddbookVCWithSender:" id="gC6-dP-2tI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIH-r7-FNp">
@@ -140,13 +162,12 @@
                     </view>
                     <connections>
                         <outlet property="closeBtn" destination="gIH-r7-FNp" id="oDi-ju-71F"/>
-                        <segue destination="DFN-bf-3OS" kind="unwind" unwindAction="unwindAddbookVCWithSender:" id="bIT-uB-vV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30x-vs-IYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DFN-bf-3OS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1733.5999999999999" y="762.36881559220399"/>
+            <point key="canvasLocation" x="1991" y="734"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gPb-jU-22w">
@@ -172,6 +193,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="close-icon" width="256" height="256"/>
         <image name="stevejobs" width="182" height="277"/>
     </resources>
 </document>

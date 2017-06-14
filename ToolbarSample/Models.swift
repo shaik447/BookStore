@@ -27,6 +27,15 @@ class Author{
         _books.append(book)
     }
     
+    func removeBook(book:Book){
+        let index=_books.index { (rbook) -> Bool in
+            rbook.Title == book.Title
+        }
+        if let ind=index{
+            _books.remove(at: ind)
+        }
+    }
+    
     init(name:String, books:[Book]) {
         self._name=name
         self._books=books
