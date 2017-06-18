@@ -69,6 +69,12 @@ class BookView: UICollectionViewController,UICollectionViewDelegateFlowLayout {
         return 30
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 105, height: 135)
+    }
+    
+    
     @IBAction func unwindAddbookVC(sender:UIStoryboardSegue){
         if let sourceVC=sender.source as? AddBookVC{
 
@@ -88,6 +94,7 @@ class BookView: UICollectionViewController,UICollectionViewDelegateFlowLayout {
         let visbleitems=collectionView?.visibleCells as? [BookCell]
         for visibleitem in visbleitems!{
             visibleitem.showclose(bookcell: visibleitem,hide:false)
+            print("X: \(visibleitem.frame.origin.x) Y: \(visibleitem.frame.origin.y)")
         }
         let doneitem=UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(doneclicked))
         
@@ -99,7 +106,6 @@ class BookView: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     
     
     @IBAction func deleteBookClicked(_ sender: UIButton){
-        print(sender.superview!.superview!)
         if let parentcell = sender.superview!.superview, let bookcell = parentcell as? BookCell {
             print(bookcell.book.Title)
             let indexpath=collectionView?.indexPath(for: bookcell)

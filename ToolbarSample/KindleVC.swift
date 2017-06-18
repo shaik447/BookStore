@@ -18,22 +18,22 @@ class KindleVC: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellid")
         let tmpview=UIView()
-        tmpview.backgroundColor = .red
-        tmpview.frame=CGRect(x: 0, y: 0, width: 100.0, height: 40.0)
+//        tmpview.backgroundColor = .red
+//        tmpview.frame=CGRect(x: 0, y: 0, width: 100.0, height: 40.0)
         tableView.tableFooterView=tmpview
         setupData()
         
     }
     
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let tmpview=UIView()
-        tmpview.backgroundColor = .green
-        return tmpview
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40
-    }
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let tmpview=UIView()
+//        tmpview.backgroundColor = .green
+//        return tmpview
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 40
+//    }
     
     
     func setupData(){

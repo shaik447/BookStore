@@ -22,6 +22,12 @@ class Author{
             return _books ?? [Book]()
         }
     }
+      
+    
+    init(name:String, books:[Book]) {
+        self._name=name
+        self._books=books
+    }
     
     func addBook(book:Book){
         _books.append(book)
@@ -34,11 +40,6 @@ class Author{
         if let ind=index{
             _books.remove(at: ind)
         }
-    }
-    
-    init(name:String, books:[Book]) {
-        self._name=name
-        self._books=books
     }
     
 }
